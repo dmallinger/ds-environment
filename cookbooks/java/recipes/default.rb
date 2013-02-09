@@ -21,7 +21,7 @@ end
 
 # java comes with mac os x, just need to make sure that JAVA_HOME is set
 # TODO: this is another place where, in the future, we need more OS support
-script "base::configure_java" do
+script "java::configure_java" do
   interpreter "bash"
   code <<-EOF
     echo "export JAVA_HOME=\\$(/usr/libexec/java_home)" >> #{node[:java][:profile_path]}
@@ -34,7 +34,7 @@ end
 # ant
 ##
 
-tarball_package "base::apache_ant" do
+tarball_package "java::apache_ant" do
   source node[:ant][:url]
   checksum node[:ant][:checksum]
   path "#{node[:java][:install_path]}/apache-ant-#{node[:ant][:version]}"
@@ -51,7 +51,7 @@ end
 # maven
 ##
 
-tarball_package "base::apache_maven" do
+tarball_package "java::apache_maven" do
   source node[:maven][:url]
   checksum node[:maven][:checksum]
   path "#{node[:java][:install_path]}/apache-maven-#{node[:maven][:version]}"

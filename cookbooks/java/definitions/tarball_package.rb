@@ -17,7 +17,7 @@ define :tarball_package, :action => :create do
   
   if params[:action] == :create
     # download the tarball
-    remote_file params[:source] do
+    remote_file "tarball_package::download_source::#{params[:name]}" do
       source params[:source]
       path "#{params[:cache_path]}"
       checksum params[:checksum] if params[:checksum]
@@ -59,7 +59,8 @@ define :tarball_package, :action => :create do
     
     # remove the old softlink if one is defined
     # (this lazily assumes any definition is a change)
-    file params[:softlink] do
+    file "tarball_package::softlink_delete::#{params[:name]}" do
+      path params[:softlink]
       user params[:user] if params[:user]
       action :delete
       only_if { params[:softlink] }
@@ -77,7 +78,8 @@ define :tarball_package, :action => :create do
     end
     
     # ensure the softlink is owned by the right person
-    file params[:softlink] do
+    file "tarball_package::softlink_owner::#{params[:name]}" do
+      path params[:softlink]
       owner params[:owner] if params[:owner]
       group params[:group] if params[:group]
       action :touch

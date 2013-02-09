@@ -1,7 +1,7 @@
 # The Data Science Environment Manager
 
 ## Overview
-This is a [Chef](http://wiki.opscode.com/display/chef/Home) repository for easily setting up
+This is a [Chef](http://docs.opscode.com/chef_quick_overview.html) repository for easily setting up
 a data science environment.  Right now, it's focused on my primary tools: Hadoop and R.  Hopefully
 this repo will keep expanding over time and become a Swiss Army Knife of data science environment
 management.  Currently, the 'local' role will:
@@ -27,6 +27,7 @@ Future development is to include the following:
 * Hue integration
 * Mahout
 * Dataset cookbooks (what's a DS environment without fun data?!)
+* Snappy
 * More than OS X support (Bueller?... Bueller?... Bueller?)
 * An MPP cookbook
 
