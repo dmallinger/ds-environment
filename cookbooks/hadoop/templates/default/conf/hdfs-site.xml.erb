@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<!-- Put site-specific property overrides in this file. -->
+
+<configuration>
+    <property>
+        <name>dfs.replication</name>
+        <value><%= @node[:hadoop][:hdfs][:dfs_replication] %></value>
+    </property>
+    
+    <property>
+        <name>dfs.name.dir</name>
+        <value><%= @node[:hadoop][:hdfs][:dfs_name_dir] %></value>
+    </property>
+    
+    <property>
+        <name>dfs.name.edits.dir</name>
+        <value><%= @node[:hadoop][:hdfs][:dfs_name_edits_dir] %></value>
+    </property>
+    
+    <property>
+        <name>dfs.data.dir</name>
+        <value><%= @node[:hadoop][:hdfs][:dfs_data_dir] %></value>
+    </property>
+</configuration>

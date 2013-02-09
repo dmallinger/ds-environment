@@ -1,0 +1,5 @@
+maintainer       "Dan Mallinger"
+license          "Public"
+description      "Installs/Configures Java software and Java-related software"
+version          "0.1.1"
+recipe           "java::default", "Ensures Java is running and sets up Apache Ant and Maven"

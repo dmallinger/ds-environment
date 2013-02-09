@@ -1,0 +1,39 @@
+{
+  "java": {
+    "install_path": "/Users/dmallinger/Code/java",
+    "remote_file_path": "/Users/dmallinger/Code/chef/remote_files",
+    "profile_path": "/Users/dmallinger/.bash_profile",
+    "owner": "dmallinger",
+    "group": "staff"
+  },
+  "hadoop": {
+    "install_path": "/Users/dmallinger/Code/hadoop",
+    "remote_file_path": "/Users/dmallinger/Code/chef/remote_files",
+    "profile_path": "/Users/dmallinger/.bash_profile",
+    "owner": "dmallinger",
+    "group": "staff",
+    "env": {
+      "hadoop_conf_dir": "/Users/dmallinger/Code/hadoop/hadoop/conf",
+      "hadoop_log_dir": "/Users/dmallinger/Code/hadoop/hadoop/logs",
+      "hadoop_pid_dir": "/Users/dmallinger/Code/hadoop/hadoop/pids"
+    },
+    "core": {
+      "fs_checkpoint_dir": "/Users/dmallinger/Code/hadoop/data/hdfs/checkpoint"
+    },
+    "hdfs": {
+      "dfs_name_dir": "/Users/dmallinger/Code/hadoop/data/hdfs/name",
+      "dfs_data_dir": "/Users/dmallinger/Code/hadoop/data/hdfs/data"
+    },
+    "mapred": {
+      "mapred_local_dir": "/Users/dmallinger/Code/hadoop/data/mapred/local"
+    }
+  },
+  "rstats": {
+    "remote_file_path": "/Users/dmallinger/Code/chef/remote_files",
+    "r_profile_path": "/Users/dmallinger/.Rprofile",
+    "r_environ_path": "/Users/dmallinger/.Renviron",
+    "packages": ["xtable"]
+  },
+  "run_list": [ "role[local]" ]
+}
+

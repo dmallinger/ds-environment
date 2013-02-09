@@ -1,0 +1,5 @@
+maintainer       "Dan Mallinger"
+license          "Public"
+description      "Installs/Configures the R statistical library"
+version          "0.1.1"
+recipe           "rstats::default", "Installs the R package, configures, and installs any libraries defined in attributes"

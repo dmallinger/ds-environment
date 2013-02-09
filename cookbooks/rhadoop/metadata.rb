@@ -1,0 +1,7 @@
+maintainer       "Dan Mallinger"
+license          "Public"
+description      "Installs/Configures RHadoop"
+version          "0.1.1"
+recipe           "rhadoop::default", "Installs RHadoop and updates all necessary configs"
+depends          "hadoop"
+depends          "rstats"

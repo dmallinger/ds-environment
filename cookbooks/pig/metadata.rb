@@ -1,0 +1,6 @@
+maintainer       "Dan Mallinger"
+license          "Public"
+description      "Installs/Configures Apache Pig"
+version          "0.1.1"
+recipe           "pig::default", "Installs Pig"
+depends          "hadoop"
