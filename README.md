@@ -78,24 +78,24 @@ There are a few final steps that the cookbooks doesn't currently handle.
 The example `solo.json` file in this repo should cover you, though you can look through 
 the cookbooks for more details.  The key variables to considering updating are:
 
-> java::remote_file_path, hadoop::remote_file_path, rstats::remote_file_path
+    java::remote_file_path, hadoop::remote_file_path, rstats::remote_file_path
 This are the locations where local files are stored after download (e.g. Hadoop source).  By
 storing these files, we limit the number of things downloaded when re-running the script.
 
-> java::owner, java::group, hadoop::owner, hadoop::group
+    java::owner, java::group, hadoop::owner, hadoop::group
 The user and group owners of the files and directories created in their cookbooks.  This is
 important if you're installing to a user's home directory but `chef-solo` is run as root.
 
-> java::profile_path, hadoop::profile_path
+    java::profile_path, hadoop::profile_path
 The profile.  Typically either a local .bashrc .bash_profile or the global /etc/bashrc /etc/profile
 
-> Hadoop storage directories, e.g. hadoop::env::hadoop_conf_dir
+    Hadoop storage directories, e.g. hadoop::env::hadoop_conf_dir
 The locations for the Hadoop directories for logs, configuration, data, etc.  If you're doing
 a global (all users) install then probably under /etc/hadoop, otherwise in a user's home directory.
 
-> rstats::r_profile_path, rstats::r_environ_path
+    rstats::r_profile_path, rstats::r_environ_path
 The profile and environment for R.  Used to update options and set environment variables, 
 e.g. HADOOP_CMD for RHadoop.
 
-> rstats::packages
+    rstats::packages
 A list of packages to be installed for R.  Purely those you like and want in there by default.
