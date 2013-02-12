@@ -87,12 +87,13 @@ define :tarball_package, :action => :create do
     
     # optionally, create an environment variable and add {path}/bin to PATH
     # note grep to remove old references. that code is lazy and might "over-prune".
-    # also note grep, not sed, because of stupid Mac OS X implementation of word
-    # boundaries in sed... ugh
+    # also note, grep (not sed) without regex and word boundaries because of hokiness in Mac OS X.
+    # see http://developer.apple.com/library/mac/#documentation/Darwin/Reference/ManPages/man7/re_format.7.html#//apple_ref/doc/man/7/re_format
+    # and http://www.dirtdon.com/?p=1452 for a couple annoying examples
     script "tarball_package::environment::#{params[:name]}" do
       interpreter "bash"
       code <<-EOF
-        grep -v -P '\\b#{params[:environment_var]}\\b' #{params[:profile]} > #{params[:profile]}.tmp
+        grep -v '#{params[:environment_var]}=' #{params[:profile]} | grep -v 'PATH=.*#{params[:environment_var]}'> #{params[:profile]}.tmp
         cat #{params[:profile]}.tmp > #{params[:profile]}
         rm #{params[:profile]}.tmp
         echo "export #{params[:environment_var]}=#{params[:path]}" >> #{params[:profile]}

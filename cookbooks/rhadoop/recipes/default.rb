@@ -27,8 +27,8 @@ script "rhadoop::base::r_environ" do
   interpreter "bash"
   code <<-EOF
     # remove the old declarations
-    grep -v -P '\\bHADOOP_CMD\\b' #{node[:rstats][:r_environ_path]} > #{node[:rstats][:r_environ_path]}.tmp
-    grep -v -P '\\bHADOOP_STREAMING\\b' #{node[:rstats][:r_environ_path]}.tmp > #{node[:rstats][:r_environ_path]}
+    grep -v 'HADOOP_CMD=' #{node[:rstats][:r_environ_path]} > #{node[:rstats][:r_environ_path]}.tmp
+    grep -v 'HADOOP_STREAMING=' #{node[:rstats][:r_environ_path]}.tmp > #{node[:rstats][:r_environ_path]}
     # clean up our temp file
     rm #{node[:rstats][:r_environ_path]}.tmp
     # source the profile, we'll need those environment variables
